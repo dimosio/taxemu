@@ -16,7 +16,7 @@ const MainForm = () => {
     extraBusinessExpenses,
     totalBusinessExpenses,
     taxYearDuration,
-    taxScales
+    taxScales,
   } = details;
 
   const incomeInputList = [
@@ -48,35 +48,35 @@ const MainForm = () => {
     },
   ];
 
-  const addTotalBusinessExpensesWrapper = useCallback((value) => {
-    return (
-      addDetail({
+  const addTotalBusinessExpensesWrapper = useCallback(
+    (value) => {
+      return addDetail({
         value,
         field: "totalBusinessExpenses",
-      }),
-      [addDetail]
-    );
-  });
+      });
+    },
+    [addDetail]
+  );
 
-  const addTaxableIncomeWrapper = useCallback((value) => {
-    return (
-      addDetail({
+  const addTaxableIncomeWrapper = useCallback(
+    (value) => {
+      return addDetail({
         value,
         field: "taxableIncome",
-      })
-    );
-  },
-  [addDetail]);
+      });
+    },
+    [addDetail]
+  );
 
-  const addTotalTaxWrapper = useCallback((value) => {
-    return (
-      addDetail({
+  const addTotalTaxWrapper = useCallback(
+    (value) => {
+      return addDetail({
         value,
         field: "totalTax",
-      })
-    );
-  },
-  [addDetail]);
+      });
+    },
+    [addDetail]
+  );
 
   const onChangeDetail = (value, field) => {
     addDetail({
@@ -128,11 +128,11 @@ const MainForm = () => {
 
   useEffect(() => {
     handleTaxableIncome();
-  }, [handleTaxableIncome,grossIncome, totalBusinessExpenses]);
+  }, [handleTaxableIncome, grossIncome, totalBusinessExpenses]);
 
   useEffect(() => {
     handleTotalTax();
-  }, [handleTotalTax,taxScales]);
+  }, [handleTotalTax, taxScales]);
 
   return (
     <Box>

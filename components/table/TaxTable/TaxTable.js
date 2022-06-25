@@ -26,10 +26,9 @@ const TaxTable = () => {
       addDetail({
         value,
         field: "taxScales",
-      }),
-      [addDetail]
+      })
     );
-  });
+  },[addDetail]);
 
   const handleTaxScales = useCallback(() => {
     let amount = taxableIncome;
@@ -70,7 +69,7 @@ const TaxTable = () => {
 
   useEffect(() => {
     handleTaxScales();
-  }, [taxableIncome, discountOptions]);
+  }, [handleTaxScales,taxableIncome, discountOptions]);
 
   return (
     <Box>
